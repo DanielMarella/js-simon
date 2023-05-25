@@ -36,15 +36,15 @@ function contoAllaRovescia(){
         let hours = Math.floor(timeDistance % (1000 * 60 * 60 * 24) / (1000 * 60 * 60));
         let minuts = Math.floor(timeDistance % (1000 * 60 * 60) / (1000 * 60));
         let seconds = Math.floor(timeDistance % (1000 * 60) / 1000);
-        console.log('ore: ' + hours + ' minuti: ' + minuts + ' secondi: ' + seconds );
+        document.getElementById("countDown").innerHTML = hours + "ore "+ minuts + "minuti " + seconds + "secondi ";
         
         // Controllo che mi fa interropere il ciclo quando è finito
         if (actualDateTime < 0) {
             clearInterval(interval);
+            document.getElementById("countDown").innerHTML = ('complimenti non hai sbagliato nulla sei stato straordinario');
         }
     }, 1000)
 }
-
 
 let time = contoAllaRovescia();
 console.log(time);
