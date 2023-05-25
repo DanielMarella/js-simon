@@ -1,22 +1,5 @@
 
 
-/*
-Sfruttiamo le timing functions per fare il conto alla rovescia per la correzione di domani!
-Ogni secondo il nostro countdown dovrà scalare fino alle 9:30 di domani mattina!
-
-
-
-Questo esercizio richiede un po' di ricerca ma anche un po' di domande che accompagnano l'uomo da tempo immemore:
-Da quante ore è composto un giorno? = 24
-Da quanti minuti è composta un'ora? = 60
-Da quanti secondi è composto un minuto? = 60
-Da quanti millisecondi è composto un secondo? = 1000
-
-Quanti millisecondi mi separano da domani alle 9:30?
-Esiste un oggetto JS in grado di gestire le date?
-Esistono dei metodi per trasformare una data in millisecondi?
-Buon divertimento a tutte e a tutti!
-*/
 
 // Funzione che mi fa il conto alla rovescia
 function contoAllaRovescia(){
@@ -43,8 +26,8 @@ function contoAllaRovescia(){
             clearInterval(interval);
             document.getElementById("countDown").innerHTML = ('complimenti non hai sbagliato nulla sei stato straordinario');
         }
-    }, 1000)
+    }, 1000) //1000 = intervallo di aggiornamento della funzione (la funzione si ripete ogni 1s)
 }
 
+// Richiamo la funzione per farla funzionare
 let time = contoAllaRovescia();
-console.log(time);
