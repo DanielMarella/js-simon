@@ -18,33 +18,35 @@ Esistono dei metodi per trasformare una data in millisecondi?
 Buon divertimento a tutte e a tutti!
 */
 
-// const hours = (1000 * 60 * 60 * 24);
-// const minuts = (1000 * 60 * 60);
-// const seconds = (1000 * 60);
+// Funzione che mi fa il conto alla rovescia
+function contoAllaRovescia(){
+    
+    // Data da confrontare
+    let dateToCheck = new Date('May 26, 2023 9:30:00').getTime();
+    console.log(dateToCheck);
+    
+    // Funzione che mi aggiorna  il countdown ogni secondo
+    let interval = setInterval(function(){
 
-// const hoursInaDay = hours / (1000 * 60 * 60);
-// console.log(hoursInaDay);
-
-// const minutsInaDay = minuts / (1000 * 60);
-// console.log(minutsInaDay);
-
-// const secondsInaDay = seconds / (1000);
-// console.log(secondsInaDay);
-
-
-// function contoAllaRovescia(){
-// }
-//     let dateToCheck = new Date('May 26, 2023 9:30:00').getTime();
-//     console.log(dateToCheck);
-
-
-
-let end, start;
-
-start = new Date();
-for (let i = 0; i < 1000; i++) {
-  Math.sqrt(i);
+        //Calcolo di quante ore/minuti/secondi ci sono in una giornata
+        const hoursInaDay = hours / (1000 * 60 * 60);
+        const minutsInaDay = minuts / (1000 * 60);
+        const secondsInaDay = 1000;
+        
+        // Variabile che mi prende il giorno e l'ora attuale
+        let actualDateTime = new Date ().getTime();
+        
+        //Variabile che mi calcola il tempo che  c'e fra la data di partenza e la data di arrivo
+        let timeDistance = dateToCheck - actualDateTime;
+        let hours = Math.floor(timeDistance % (1000 * 60 * 60 * 24) / hoursInaDay);
+        let minuts = Math.floor(timeDistance % (1000 * 60 * 60) / minutsInaDay);
+        let seconds = Math.floor(timeDistance % (1000 * 60) / secondsInaDay);
+        
+        if (actualDateTime < 0) {
+            clearInterval(interval);
+        }
+    }, 1000)
 }
-end = new Date();
 
-console.log(`Operation took ${end.getTime() - start.getTime()} msec`);
+let time = contoAllaRovescia();
+console.log(time)
