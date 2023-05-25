@@ -28,25 +28,23 @@ function contoAllaRovescia(){
     // Funzione che mi aggiorna  il countdown ogni secondo
     let interval = setInterval(function(){
 
-        //Calcolo di quante ore/minuti/secondi ci sono in una giornata
-        const hoursInaDay = hours / (1000 * 60 * 60);
-        const minutsInaDay = minuts / (1000 * 60);
-        const secondsInaDay = 1000;
-        
         // Variabile che mi prende il giorno e l'ora attuale
         let actualDateTime = new Date ().getTime();
         
         //Variabile che mi calcola il tempo che  c'e fra la data di partenza e la data di arrivo
         let timeDistance = dateToCheck - actualDateTime;
-        let hours = Math.floor(timeDistance % (1000 * 60 * 60 * 24) / hoursInaDay);
-        let minuts = Math.floor(timeDistance % (1000 * 60 * 60) / minutsInaDay);
-        let seconds = Math.floor(timeDistance % (1000 * 60) / secondsInaDay);
+        let hours = Math.floor(timeDistance % (1000 * 60 * 60 * 24) / (1000 * 60 * 60));
+        let minuts = Math.floor(timeDistance % (1000 * 60 * 60) / (1000 * 60));
+        let seconds = Math.floor(timeDistance % (1000 * 60) / 1000);
+        console.log('ore: ' + hours + ' minuti: ' + minuts + ' secondi: ' + seconds );
         
+        // Controllo che mi fa interropere il ciclo quando è finito
         if (actualDateTime < 0) {
             clearInterval(interval);
         }
     }, 1000)
 }
 
+
 let time = contoAllaRovescia();
-console.log(time)
+console.log(time);
